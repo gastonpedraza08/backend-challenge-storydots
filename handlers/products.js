@@ -20,6 +20,11 @@ const updateProduct = async (id, newProduct) => {
 	return result;
 }
 
+const deleteProduct = async id => {
+	const result = await repository.destroy(id);
+	return result;
+}
+
 
 
 module.exports = {
@@ -27,4 +32,5 @@ module.exports = {
 	getProducts,
 	getProductById,
 	updateProduct,
+	deleteProduct,
 }

@@ -24,9 +24,19 @@ const update = async (id, newProduct) => {
 	return result;
 }
 
+const destroy = async id => {
+	const result = await Product.destroy({
+		where: {
+			id
+		}
+	});
+	return result;
+}
+
 module.exports = {
 	persist,
 	getAll,
 	getById,
-	update
+	update,
+	destroy,
 }

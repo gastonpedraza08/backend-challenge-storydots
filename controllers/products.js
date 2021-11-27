@@ -55,4 +55,20 @@ router.put('/:id', async (req, res, next) => {
 	}
 });
 
+router.delete('/:id', async (req, res, next) => {
+	try {
+		const result = await handler.deleteProduct(req.params.id);
+
+		if (result===0) {
+			throw new ControllerError('Can not delete product', 400);
+		}
+
+		res.status(200).json({
+			message: 'Product deleted successfully'
+		});
+	} catch (e) {
+		next(e);
+	}
+});
+
 module.exports = router;
