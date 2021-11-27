@@ -5,6 +5,12 @@ const createProduct = async product => {
 	return result;
 }
 
+const getProducts = async () => {
+	const result = await repository.getAll();
+	return result;
+}
+
 module.exports = {
 	createProduct,
+	getProducts,
 }

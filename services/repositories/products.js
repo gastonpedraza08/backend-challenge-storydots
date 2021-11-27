@@ -5,6 +5,12 @@ const persist = async product => {
 	return result;
 }
 
+const getAll = async () => {
+	const result = await Product.findAll();
+	return result;
+}
+
 module.exports = {
 	persist,
+	getAll,
 }
