@@ -10,7 +10,13 @@ const getProducts = async () => {
 	return result;
 }
 
+const getProductById = async id => {
+	const result = await repository.getById(id);
+	return result;
+}
+
 module.exports = {
 	createProduct,
 	getProducts,
+	getProductById,
 }

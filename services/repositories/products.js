@@ -10,7 +10,13 @@ const getAll = async () => {
 	return result;
 }
 
+const getById = async id => {
+	const result = await Product.findByPk(id);
+	return result;
+}
+
 module.exports = {
 	persist,
 	getAll,
+	getById,
 }

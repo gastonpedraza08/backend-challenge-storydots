@@ -26,4 +26,15 @@ router.post('/', async (req, res, next) => {
 	}
 });
 
+router.get('/:id', async (req, res, next) => {
+	try {
+		const result = await handler.getProductById(req.params.id);
+		res.status(200).json({
+			product: result
+		});
+	} catch (e) {
+		next(e);
+	}
+});
+
 module.exports = router;
