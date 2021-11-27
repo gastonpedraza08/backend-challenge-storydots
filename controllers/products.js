@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const handler = require('../handlers/products');
+const ControllerError = require('../helpers/ControllerError');
 
 router.get('/', async (req, res, next) => {
 	try {
@@ -41,12 +42,13 @@ router.put('/:id', async (req, res, next) => {
 	const newProduct = req.body;
 	try {
 		const result = await handler.updateProduct(req.params.id, newProduct);
-		let message = 'Product updated successfully';
+
 		if (result[0]===0) {
-			message = 'Can not update product';
+			throw new ControllerError('Can not update product', 400);
 		}
+
 		res.status(200).json({
-			message
+			message: 'Product updated successfully'
 		});
 	} catch (e) {
 		next(e);
