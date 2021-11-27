@@ -9,7 +9,7 @@ router.get('/', (req, res) => {
 });
 
 router.post('/', async (req, res, next) => {
-	const product = req.body.product;
+	const product = req.body;
 	try {
 		const result = await handler.createProduct(product);
 		res.status(200).json({
