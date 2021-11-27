@@ -17,6 +17,8 @@ function errorHandler(err, req, res, next) {
 			break;
 		case Sequelize.DatabaseError:
 			console.log("log switch = Sequelize.DatabaseError")
+			statusCode = 400;
+			error = err.original.sqlMessage;
 			break;
 		case Sequelize.TimeoutError:
 			console.log("log switch = Sequelize.TimeoutError")
@@ -59,6 +61,8 @@ function errorHandler(err, req, res, next) {
 			break;
 		case ControllerError:
 			console.log("log switch = ControllerError")
+			error = err.message;
+			statusCode = err.statusCode;
 			break;
 		default:
 			console.log("log switch = default");
