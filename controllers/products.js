@@ -8,7 +8,7 @@ router.get('/', (req, res) => {
 	});
 });
 
-router.post('/', async (req, res) => {
+router.post('/', async (req, res, next) => {
 	const product = req.body.product;
 	try {
 		const result = await handler.createProduct(product);
@@ -17,10 +17,7 @@ router.post('/', async (req, res) => {
 			product: result
 		});
 	} catch (e) {
-		console.log(e)
-		res.status(500).json({
-			error: 'Internal error'
-		});
+		next(e);
 	}
 });
 
