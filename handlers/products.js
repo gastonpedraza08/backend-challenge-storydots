@@ -15,8 +15,16 @@ const getProductById = async id => {
 	return result;
 }
 
+const updateProduct = async (id, newProduct) => {
+	const result = await repository.update(id, newProduct);
+	return result;
+}
+
+
+
 module.exports = {
 	createProduct,
 	getProducts,
 	getProductById,
+	updateProduct,
 }

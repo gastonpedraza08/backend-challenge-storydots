@@ -15,8 +15,18 @@ const getById = async id => {
 	return result;
 }
 
+const update = async (id, newProduct) => {
+	const result = await Product.update(newProduct, {
+		where: {
+			id
+		}		
+	});
+	return result;
+}
+
 module.exports = {
 	persist,
 	getAll,
 	getById,
+	update
 }

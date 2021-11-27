@@ -37,4 +37,20 @@ router.get('/:id', async (req, res, next) => {
 	}
 });
 
+router.put('/:id', async (req, res, next) => {
+	const newProduct = req.body;
+	try {
+		const result = await handler.updateProduct(req.params.id, newProduct);
+		let message = 'Product updated successfully';
+		if (result[0]===0) {
+			message = 'Can not update product';
+		}
+		res.status(200).json({
+			message
+		});
+	} catch (e) {
+		next(e);
+	}
+});
+
 module.exports = router;
