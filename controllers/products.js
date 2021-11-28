@@ -3,12 +3,12 @@ const router = express.Router();
 const handler = require('../handlers/products');
 const ControllerError = require('../helpers/ControllerError');
 
-router.get('/', async (req, res, next) => {
+router.get('/', async (req, res, next) => {	
 	const params = {
-		limit: parseInt(req.query.limit) || 12,
-		order: req.query.order || 'DESC',
-		orderBy: req.query.orderBy || 'id',
-		page: req.query.page ? ((parseInt(req.query.page) - 1) * 6) : 0
+		limit: req.query.limit ? parseInt(req.query.limit) : 12,
+		order: req.query.order ? req.query.order : 'DESC',
+		orderBy: req.query.orderBy ? req.query.orderBy : 'id',
+		offset: req.query.offset ? parseInt(req.query.offset) : 0
 	};
 
 	try {

@@ -8,7 +8,7 @@ const persist = async product => {
 const getAll = async params => {
 	const result = await Product.findAll({
 		limit: params.limit,
-		offset: params.page,
+		offset: params.offset,
 		order: [[params.orderBy, params.order]],
 	});
 	return result;
