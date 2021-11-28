@@ -12,7 +12,7 @@ module.exports = {
         type: Sequelize.STRING
       },
       description: {
-        type: Sequelize.STRING
+        type: Sequelize.TEXT('long'),
       },
       image_url: {
         type: Sequelize.STRING
@@ -20,6 +20,15 @@ module.exports = {
       price: {
         type: Sequelize.DECIMAL(10, 2)
       },
+      brandId: {
+				type: Sequelize.INTEGER,
+				references: {
+					model: 'Brands',
+					key: 'id',
+				},
+				onUpdate: 'CASCADE',
+				onDelete: 'SET NULL',
+			},
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE
