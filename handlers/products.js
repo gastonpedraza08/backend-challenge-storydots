@@ -5,8 +5,8 @@ const createProduct = async product => {
 	return result;
 }
 
-const getProducts = async () => {
-	const result = await repository.getAll();
+const getProducts = async params => {
+	const result = await repository.getAll(params);
 	return result;
 }
 

@@ -5,8 +5,12 @@ const persist = async product => {
 	return result;
 }
 
-const getAll = async () => {
-	const result = await Product.findAll();
+const getAll = async params => {
+	const result = await Product.findAll({
+		limit: params.limit,
+		offset: params.page,
+		order: [[params.orderBy, params.order]],
+	});
 	return result;
 }
 

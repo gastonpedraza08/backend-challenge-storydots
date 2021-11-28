@@ -4,8 +4,15 @@ const handler = require('../handlers/products');
 const ControllerError = require('../helpers/ControllerError');
 
 router.get('/', async (req, res, next) => {
+	const params = {
+		limit: parseInt(req.query.limit) || 12,
+		order: req.query.order || 'DESC',
+		orderBy: req.query.orderBy || 'id',
+		page: req.query.page ? ((parseInt(req.query.page) - 1) * 6) : 0
+	};
+
 	try {
-		const result = await handler.getProducts();
+		const result = await handler.getProducts(params);
 		res.status(200).json({
 			products: result
 		});
