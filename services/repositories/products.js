@@ -6,7 +6,7 @@ const persist = async product => {
 }
 
 const getAll = async params => {
-	const result = await Product.findAll({
+	const result = await Product.findAndCountAll({
 		limit: params.limit,
 		offset: params.offset,
 		order: [[params.orderBy, params.order]],

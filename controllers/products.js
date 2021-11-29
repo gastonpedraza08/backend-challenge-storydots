@@ -19,7 +19,8 @@ router.get('/', async (req, res, next) => {
 	try {
 		const result = await handler.getProducts(params);
 		res.status(200).json({
-			products: result
+			products: result.rows,
+			count: result.count
 		});
 	} catch (e) {
 		next(e);
