@@ -11,6 +11,11 @@ router.get('/', async (req, res, next) => {
 		offset: req.query.offset ? parseInt(req.query.offset) : 0
 	};
 
+	if (req.query.page) {
+		let offset = params.limit * (Number(req.query.page) - 1);
+		params.offset = offset;
+	}
+
 	try {
 		const result = await handler.getProducts(params);
 		res.status(200).json({
