@@ -1,6 +1,9 @@
 const repository = require('../services/repositories/products');
+const { uploadFile } = require('../services/externals/s3');
 
 const createProduct = async product => {
+	const image = await uploadFile(product.base64);
+	product.image_url = image.Location;
 	const result = await repository.persist(product);
 	return result;
 }
