@@ -59,7 +59,7 @@
 Este proyecto es parte del Coding Challenge Full Fullstack Developer de StoryDots!
 La consigna se trataba de crear un simple ecommerce que permitiera visualizar los productos y además administrarlos desde un panel de administración.
 
-Para desarrollar este proyecto utilice un ORM como sequelize, que me permite migrar de bases de datos relacionales de una manera muy facil y rapida.
+Para desarrollar este proyecto utilice un ORM como sequelize, que me permite migrar de bases de datos relacionales de una manera muy fácil y rápida.
 
 Además las imágenes son almacenadas en el s3 de aws.
 
@@ -69,7 +69,7 @@ Además las imágenes son almacenadas en el s3 de aws.
 
 ### Built With
 
-Estas son las tecnologías con las cuales decidi construir el backend.
+Estas son las tecnologías con las cuales decidí construir el backend.
 
 * [Node.js](https://nodejs.org/es/)
 * [aws-sdk](https://www.npmjs.com/package/aws-sdk)
@@ -111,7 +111,7 @@ Estos son los pasos que debes seguir para correr la aplicación local.
    ```sh
    npx sequelize-cli db:migrate
    ```
-6. Ejecuta los seedes
+6. Ejecuta los seeders
    ```sh
    npx sequelize-cli db:seed:all
    ```
